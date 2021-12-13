@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">Social network ui</string>
+    <string name="app_name">Permissions</string>
+    <string name="title_activity_maps" translatable="false">MapsActivity</string>
+    <string name="request_location_permission" translatable="false">Запрос разрешения на получение геолокации:</string>
+    <string name="request" translatable="false">Запрос</string>
+    <string name="permission_denied" translatable="false">Разрешение отклонено</string>
+    <string name="permission_denied_forever_message" translatable="false">"Вы отклонили разрешение навсегда. Вы можете разрешить приложению доступ к геопозиции в настройках.\n\nОткрыть настройки?"</string>
+    <string name="open" translatable="false">Открыть</string>
+    <string name="cancel" translatable="false">Отмена</string>
+    <string name="enable_wifi" translatable="false">Включить Wi-Fi</string>
+    <string name="no_internet" translatable="false">Отсутствует интернет-соединение</string>
+    <string name="go_to_internet">Выйти в интернет</string>
+    <string name="get_location">Узнать местоположение</string>
 </resources>
