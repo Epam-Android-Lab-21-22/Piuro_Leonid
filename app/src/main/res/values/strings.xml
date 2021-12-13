@@ -1,3 +1,34 @@
 <resources>
-    <string name="app_name">Social network ui</string>
+    <string name="app_name">Предсказатель</string>
+    <string name="get_prediction">Получить предсказание</string>
+    <string name="prediction">Предсказание</string>
+    <string name="got_predictions_0">Получено предсказаний: 0</string>
+    <string name="got_predictions">Получено предсказаний:</string>
+
+    <string-array name="firstPhrase">
+        <item>Вам нужно</item>
+        <item>Советую вам </item>
+        <item>Это будет страшной ошибкой -</item>
+        <item>Нужно немедленно</item>
+        <item>Это очень рискованно -</item>
+        <item>Невозможно</item>
+        <item>Лучше всего тайком</item>
+        <item>Чувствую, что вы хотите</item>
+        <item>Вы сами знаете, что следует</item>
+        <item>Повелеваю</item>
+    </string-array>
+
+    <string-array name="secondPhrase">
+        <item>заняться этим прямо сейчас.</item>
+        <item>ещё раз всё обдумать.</item>
+        <item>предусмотреть путь для отступления.</item>
+        <item>прыгнуть в омут с головой.</item>
+        <item>поторопиться с принятием решения.</item>
+        <item>забыть об этом.</item>
+        <item>сделать, но никому не рассказывать.</item>
+        <item>рассказать об этом другу и послушать его совета.</item>
+        <item>послушать меня и сделать наоборот.</item>
+        <item>перестать спрашивать у бесполезного меня и принять решение самостоятельно. В КОИ-ТО ВЕКИ!</item>
+    </string-array>
+
 </resources>
