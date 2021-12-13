@@ -12,13 +12,14 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private lateinit var checkNetworkConnection : CheckNetworkConnection
+    private val checkNetworkConnection by lazy {
+        CheckNetworkConnection(application)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        checkNetworkConnection = CheckNetworkConnection(application)
         initViews()
         callNetworkConnection()
     }
