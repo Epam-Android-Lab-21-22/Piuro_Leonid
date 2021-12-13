@@ -12,6 +12,14 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
+    private val snackbar by lazy {
+        Snackbar.make(
+            binding.root,
+            getString(R.string.no_internet),
+            Snackbar.LENGTH_INDEFINITE
+        )
+    }
+
     private val checkNetworkConnection by lazy {
         CheckNetworkConnection(application)
     }
@@ -33,13 +41,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun callNetworkConnection() {
         binding.startFeatureActivityBtn.isEnabled = false
+        snackbar.show()
         checkNetworkConnection.observe(this,{ isConnected ->
             if (isConnected) {
                 binding.startFeatureActivityBtn.isEnabled = true
+                snackbar.dismiss()
             }
             else {
                 binding.startFeatureActivityBtn.isEnabled = false
-                Snackbar.make(binding.root, getString(R.string.no_internet), Snackbar.LENGTH_INDEFINITE).show()
+                snackbar.show()
             }
         })
     }
