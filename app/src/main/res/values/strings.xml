@@ -1,3 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Social network ui</string>
+    <string name="app_name">Социальная сеть</string>
+    <string name="get_push">Получать push-уведомления</string>
+    <string name="date_of_birth">Дата рождения</string>
+    <string name="profile">Профиль</string>
+    <string name="my_page">Моя страница</string>
+    <string name="messages">Сообщения</string>
+    <string name="friends">Друзья</string>
+    <string name="profile_settings">Настройки профиля</string>
+    <string name="notifications">Уведомления</string>
+    <string name="language">Язык</string>
+    <string name="confidentiality">Конфиденциальность</string>
+    <string name="support">Поддержка</string>
+    <string name="logout">Выйти</string>
+    <string name="symbols_counter">Счетчик символов</string>
+    <string name="clicks_counter">Счетчик нажатий</string>
+    <string name="you_can_set_a_status">Вы можете установить статус</string>
+    <string name="online">онлайн</string>
+    <string name="grigory_leps">Григорий Лепс</string>
+    <string name="decoration">Оформление</string>
 </resources>

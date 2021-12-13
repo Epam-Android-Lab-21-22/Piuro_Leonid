@@ -153,7 +153,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/clickProgressBar"
                     app:layout_constraintTop_toTopOf="@+id/clickProgressBar"
-                    tools:progress="1000"
+                    tools:progress="50"
                     style="@style/progressBar"/>
 
                 <TextView
@@ -180,15 +180,16 @@
                     android:text="@string/profile_settings"
                     app:layout_constraintTop_toBottomOf="@id/clickCounterText"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/confidentiality"
                     style="@style/button" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/confidentiality"
                     android:drawableLeft="@drawable/ic_baseline_lock_24"
                     android:text="@string/confidentiality"
-                    app:layout_constraintTop_toBottomOf="@id/profileSettings"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintTop_toTopOf="@id/profileSettings"
+                    app:layout_constraintStart_toEndOf="@id/profileSettings"
                     app:layout_constraintEnd_toEndOf="parent"
                     style="@style/button" />
 
@@ -198,15 +199,16 @@
                     android:text="@string/notifications"
                     app:layout_constraintTop_toBottomOf="@id/confidentiality"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/language"
                     style="@style/button" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/language"
                     android:drawableLeft="@drawable/ic_baseline_language_24"
                     android:text="@string/language"
-                    app:layout_constraintTop_toBottomOf="@id/notifications"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintTop_toTopOf="@id/notifications"
+                    app:layout_constraintStart_toEndOf="@id/notifications"
                     app:layout_constraintEnd_toEndOf="parent"
                     style="@style/button" />
 
@@ -216,15 +218,16 @@
                     android:text="@string/decoration"
                     app:layout_constraintTop_toBottomOf="@id/language"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/support"
                     style="@style/button" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/support"
                     android:drawableLeft="@drawable/ic_baseline_info_24"
                     android:text="@string/support"
-                    app:layout_constraintTop_toBottomOf="@id/decoration"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintTop_toTopOf="@id/decoration"
+                    app:layout_constraintStart_toEndOf="@id/decoration"
                     app:layout_constraintEnd_toEndOf="parent"
                     style="@style/button" />
 

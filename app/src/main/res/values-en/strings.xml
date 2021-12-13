@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Social network</string>
+    <string name="get_push">Get push notifications</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="profile">Profile</string>
+    <string name="my_page">My page</string>
+    <string name="messages">Messages</string>
+    <string name="friends">Friends</string>
+    <string name="profile_settings">Profile settings</string>
+    <string name="notifications">Notifications</string>
+    <string name="language">Language</string>
+    <string name="confidentiality">Confidentiality</string>
+    <string name="support">Support</string>
+    <string name="logout">Logout</string>
+    <string name="symbols_counter">Symbol counter</string>
+    <string name="clicks_counter">Click counter</string>
+    <string name="you_can_set_a_status">You can set a status</string>
+    <string name="online">online</string>
+    <string name="grigory_leps">Grigory Leps</string>
+    <string name="decoration">Decoration</string>
+</resources>

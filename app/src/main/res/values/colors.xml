@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="grey">#828181</color>
+    <color name="light_grey">#DDD</color>
+    <color name="online_status">#5A5A5A</color>
+    <color name="primary_start_color">#1DB7AE</color>
+    <color name="primary_end_color">#eb503c</color>
+    <color name="progress_start_color">#1DB7AE</color>
+    <color name="progress_end_color">#eb503c</color>
+    <color name="colorPrimaryVariant">#14736E</color>
+    <color name="menu_button">#c0f6f3</color>
+    <color name="logout_button">#1db7ae</color>
+
 </resources>
