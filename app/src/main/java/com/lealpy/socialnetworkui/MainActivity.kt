@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             }
             else {
                 binding.startFeatureActivityBtn.isEnabled = false
-                Snackbar.make(binding.root, getString(R.string.no_internet), Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, getString(R.string.no_internet), Snackbar.LENGTH_INDEFINITE).show()
             }
         })
     }
