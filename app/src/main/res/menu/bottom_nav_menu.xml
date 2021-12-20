@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/redFragment"
+        android:icon="@drawable/ic_baseline_fingerprint_24"
+        android:title="@string/red_fragment_name" />
+
+    <item
+        android:id="@+id/blueFragment"
+        android:icon="@drawable/ic_baseline_content_paste_24"
+        android:title="@string/blue_fragment_name" />
+
+    <item
+        android:id="@+id/greenFragment"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/green_fragment_name" />
+
+</menu>

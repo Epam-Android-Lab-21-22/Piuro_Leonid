@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Social network ui</string>
+
+    <string name="app_name">Fragments</string>
+    <string name="green_fragment_name">Green</string>
+    <string name="blue_fragment_name">Blue</string>
+    <string name="red_fragment_name">Red</string>
+    <string name="green_fragment_toolbar_title">Stack: Green</string>
+    <string name="blue_fragment_toolbar_title">Stack: Blue</string>
+    <string name="red_fragment_toolbar_title">Stack: Red</string>
+    <string name="fragment_counter_start_value">0</string>
+
 </resources>
