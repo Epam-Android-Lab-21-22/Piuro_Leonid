@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/achievementsScreen"
+        android:icon="@drawable/ic_baseline_sports_soccer_24"
+        android:title="@string/achievements_screen_title" />
+
+    <item
+        android:id="@+id/playersScreen"
+        android:icon="@drawable/ic_baseline_sports_basketball_24"
+        android:title="@string/players_screen_title" />
+
+</menu>

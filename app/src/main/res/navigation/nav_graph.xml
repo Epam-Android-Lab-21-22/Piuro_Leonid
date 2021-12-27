@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/achievementsScreen">
+
+    <fragment
+        android:id="@+id/achievementsScreen"
+        android:name="com.lealpy.socialnetworkui.achievements.AchievementsFragment"
+        android:label="FirstFragment"
+        tools:layout="@layout/fragment_achievements" />
+
+    <fragment
+        android:id="@+id/playersScreen"
+        android:name="com.lealpy.socialnetworkui.players.PlayersFragment"
+        android:label="PlayersFragment"
+        tools:layout="@layout/fragment_players" />
+
+</navigation>

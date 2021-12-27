@@ -1,3 +1,29 @@
 <resources>
-    <string name="app_name">Social network ui</string>
+
+    <string name="app_name">RecyclerView app</string>
+    <string name="achievements_screen_title">Achievements</string>
+    <string name="players_screen_title">Players</string>
+    <string name="basketball_players">Basketball players</string>
+    <string name="add_player">Add player</string>
+    <string name="achievements">Achievements</string>
+
+    <string name="magic_johnson">Magic Johnson</string>
+    <string name="lebron_james">LeBron James</string>
+    <string name="shaquille_o_neal">Shaquille O’Neal</string>
+    <string name="kevin_durant">Kevin Durant</string>
+    <string name="michael_jordan">Michael Jordan</string>
+    <string name="kevin_garnett">Kevin Garnett</string>
+
+    <string name="chelsea">Chelsea</string>
+    <string name="man_city">Manchester City</string>
+    <string name="liverpool">Liverpool</string>
+    <string name="champions_league">Champions League</string>
+    <string name="english_cup">FA Cup</string>
+    <string name="english_league_cup">English Football League Cup</string>
+    <string name="english_premier_league">Premiere League</string>
+    <string name="english_supercup">FA Community Shield</string>
+    <string name="season_2018_19">Season 2018/19</string>
+    <string name="season_2019_20">Season 2019/20</string>
+    <string name="season_2020_21">Season 2020/21</string>
+
 </resources>
