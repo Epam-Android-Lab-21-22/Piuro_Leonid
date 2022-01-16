@@ -3,35 +3,40 @@ package com.lealpy.socialnetworkui.players
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import com.lealpy.socialnetworkui.R
 import com.lealpy.socialnetworkui.databinding.FragmentPlayersBinding
 
-class PlayersFragment : Fragment(R.layout.fragment_players) {
+class PlayersFragment : Fragment(R.layout.fragment_players), PlayersInterface.PlayerView {
 
     private lateinit var binding : FragmentPlayersBinding
-    private val viewModel : PlayersViewModel by activityViewModels()
-    private val playerAdapter = PlayerAdapter()
+    private var presenter : PlayersPresenter? = null
+    private val adapter = PlayerAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPlayersBinding.bind(view)
-        initObservers()
-        initViews()
+        presenter = PlayersPresenter(this, PlayersModel(requireContext()))
+        initViews(savedInstanceState)
     }
 
-    private fun initObservers() {
-        viewModel.players.observe(viewLifecycleOwner) { players ->
-            playerAdapter.submitList(players)
+    override fun onDestroyView() {
+        presenter?.detachView()
+        super.onDestroyView()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if(presenter != null) {
+            outState.putParcelableArrayList(PLAYERS_KEY, presenter?.onViewAsksOutState())
         }
     }
 
-    private fun initViews() {
+    private fun initViews(savedInstanceState : Bundle?) {
         binding.addPlayerButton.setOnClickListener {
-            viewModel.onAddButtonClicked()
+            presenter?.onAddButtonClicked()
         }
 
-        binding.playersRecyclerView.adapter = playerAdapter
+        binding.playersRecyclerView.adapter = adapter
 
         val playerItemDecoration = activity?.resources?.getDimension(R.dimen.dimen_8_dp)?.let { space ->
             PlayerItemDecoration(SPAN_COUNT, space.toInt())
@@ -41,9 +46,26 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
             binding.playersRecyclerView.addItemDecoration(playerItemDecoration)
         }
 
+        presenter?.viewIsReady(savedInstanceState)
     }
+
+    override fun showPlayers(players : List<Player>) {
+        adapter.submitList(players)
+    }
+
+    override fun showProgress() {
+        binding.playersRecyclerView.visibility = View.GONE
+        binding.playersProgressBar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgress() {
+        binding.playersRecyclerView.visibility = View.VISIBLE
+        binding.playersProgressBar.visibility = View.GONE
+    }
+
     companion object {
         private const val SPAN_COUNT = 3
+        const val PLAYERS_KEY = "PLAYERS_KEY"
     }
 
 }
