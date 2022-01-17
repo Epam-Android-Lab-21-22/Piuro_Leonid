@@ -1,8 +1,11 @@
-package com.lealpy.socialnetworkui.achievements
+package com.lealpy.socialnetworkui.achievements.presenter
 
 import android.os.Bundle
 import android.os.Parcelable
-import com.lealpy.socialnetworkui.achievements.AchievementsFragment.Companion.ACHIEVEMENTS_KEY
+import com.lealpy.socialnetworkui.achievements.AchievementsInterface
+import com.lealpy.socialnetworkui.achievements.view.AchievementsFragment.Companion.ACHIEVEMENTS_KEY
+import com.lealpy.socialnetworkui.achievements.model.Achievement
+import com.lealpy.socialnetworkui.achievements.model.AchievementsModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers

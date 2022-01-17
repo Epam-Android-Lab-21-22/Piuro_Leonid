@@ -1,4 +1,4 @@
-package com.lealpy.socialnetworkui.players
+package com.lealpy.socialnetworkui.players.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.lealpy.socialnetworkui.databinding.ItemPlayerBinding
+import com.lealpy.socialnetworkui.players.model.Player
 
 class PlayerAdapter : ListAdapter<Player, PlayerAdapter.PlayerHolder>(DiffCallback()) {
 

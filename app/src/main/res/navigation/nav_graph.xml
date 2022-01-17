@@ -8,13 +8,13 @@
 
     <fragment
         android:id="@+id/achievementsScreen"
-        android:name="com.lealpy.socialnetworkui.achievements.AchievementsFragment"
+        android:name="com.lealpy.socialnetworkui.achievements.view.AchievementsFragment"
         android:label="FirstFragment"
         tools:layout="@layout/fragment_achievements" />
 
     <fragment
         android:id="@+id/playersScreen"
-        android:name="com.lealpy.socialnetworkui.players.PlayersFragment"
+        android:name="com.lealpy.socialnetworkui.players.view.PlayersFragment"
         android:label="PlayersFragment"
         tools:layout="@layout/fragment_players" />
 

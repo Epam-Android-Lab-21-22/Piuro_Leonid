@@ -1,7 +1,11 @@
-package com.lealpy.socialnetworkui.players
+package com.lealpy.socialnetworkui.players.presenter
 
 import android.os.Bundle
 import android.os.Parcelable
+import com.lealpy.socialnetworkui.players.PlayersInterface
+import com.lealpy.socialnetworkui.players.model.Player
+import com.lealpy.socialnetworkui.players.model.PlayersModel
+import com.lealpy.socialnetworkui.players.view.PlayersFragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers

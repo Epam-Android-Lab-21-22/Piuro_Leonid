@@ -1,4 +1,4 @@
-package com.lealpy.socialnetworkui.players
+package com.lealpy.socialnetworkui.players.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

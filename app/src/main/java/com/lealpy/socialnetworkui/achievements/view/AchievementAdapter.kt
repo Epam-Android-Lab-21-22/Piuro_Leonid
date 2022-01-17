@@ -1,10 +1,11 @@
-package com.lealpy.socialnetworkui.achievements
+package com.lealpy.socialnetworkui.achievements.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.lealpy.socialnetworkui.achievements.model.Achievement
 import com.lealpy.socialnetworkui.databinding.ItemSeasonBinding
 import com.lealpy.socialnetworkui.databinding.ItemTeamBinding
 import com.lealpy.socialnetworkui.databinding.ItemTrophyBinding

@@ -1,4 +1,4 @@
-package com.lealpy.socialnetworkui.players
+package com.lealpy.socialnetworkui.players.view
 
 import android.graphics.Rect
 import android.view.View

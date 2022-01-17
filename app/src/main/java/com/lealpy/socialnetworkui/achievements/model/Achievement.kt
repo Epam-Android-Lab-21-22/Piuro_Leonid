@@ -1,4 +1,4 @@
-package com.lealpy.socialnetworkui.achievements
+package com.lealpy.socialnetworkui.achievements.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

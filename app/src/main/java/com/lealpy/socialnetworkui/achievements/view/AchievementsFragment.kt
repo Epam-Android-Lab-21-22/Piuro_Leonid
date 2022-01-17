@@ -1,9 +1,13 @@
-package com.lealpy.socialnetworkui.achievements
+package com.lealpy.socialnetworkui.achievements.view
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.lealpy.socialnetworkui.R
+import com.lealpy.socialnetworkui.achievements.AchievementsInterface
+import com.lealpy.socialnetworkui.achievements.presenter.AchievementsPresenter
+import com.lealpy.socialnetworkui.achievements.model.Achievement
+import com.lealpy.socialnetworkui.achievements.model.AchievementsModel
 import com.lealpy.socialnetworkui.databinding.FragmentAchievementsBinding
 
 class AchievementsFragment :

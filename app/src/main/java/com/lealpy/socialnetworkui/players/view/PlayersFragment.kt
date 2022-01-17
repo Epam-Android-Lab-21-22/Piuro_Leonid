@@ -1,10 +1,14 @@
-package com.lealpy.socialnetworkui.players
+package com.lealpy.socialnetworkui.players.view
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.lealpy.socialnetworkui.R
 import com.lealpy.socialnetworkui.databinding.FragmentPlayersBinding
+import com.lealpy.socialnetworkui.players.PlayersInterface
+import com.lealpy.socialnetworkui.players.presenter.PlayersPresenter
+import com.lealpy.socialnetworkui.players.model.Player
+import com.lealpy.socialnetworkui.players.model.PlayersModel
 
 class PlayersFragment : Fragment(R.layout.fragment_players), PlayersInterface.PlayerView {
 

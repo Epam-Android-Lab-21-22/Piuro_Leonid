@@ -1,7 +1,8 @@
-package com.lealpy.socialnetworkui.players
+package com.lealpy.socialnetworkui.players.model
 
 import android.content.Context
 import com.lealpy.socialnetworkui.R
+import com.lealpy.socialnetworkui.players.PlayersInterface
 import io.github.serpro69.kfaker.Faker
 
 class PlayersModel(context : Context) : PlayersInterface.PlayerModel {
@@ -29,18 +30,18 @@ class PlayersModel(context : Context) : PlayersInterface.PlayerModel {
         return id
     }
 
-    fun addRandomPlayer() {
+    override fun addRandomPlayer() {
         val playerNames = playersList.map { it.name }
         var playerName = faker.basketball.players()
         while(playerNames.contains(playerName)) playerName = faker.basketball.players()
         playersList.add( Player(getId(), playerName, R.drawable.player_no_photo) )
     }
 
-    fun setPlayers(players: List<Player>) {
+    override fun setPlayers(players: List<Player>) {
         playersList = players.toMutableList()
     }
 
-    fun getPlayers(): List<Player> {
+    override fun getPlayers(): List<Player> {
         return playersList
     }
 }

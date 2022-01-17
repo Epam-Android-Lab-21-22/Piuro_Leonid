@@ -2,6 +2,7 @@ package com.lealpy.socialnetworkui.achievements
 
 import android.os.Bundle
 import android.os.Parcelable
+import com.lealpy.socialnetworkui.achievements.model.Achievement
 import java.util.ArrayList
 
 interface AchievementsInterface {
@@ -20,8 +21,8 @@ interface AchievementsInterface {
     }
 
     interface AchievementsModel {
-        fun setAchievements(achievements : List<Achievement>)
         fun getAchievements() : List<Achievement>
+        fun setAchievements(achievements : List<Achievement>)
         fun removeAchievement(achievement : Achievement)
     }
 

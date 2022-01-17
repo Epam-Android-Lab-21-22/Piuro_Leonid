@@ -2,6 +2,7 @@ package com.lealpy.socialnetworkui.players
 
 import android.os.Bundle
 import android.os.Parcelable
+import com.lealpy.socialnetworkui.players.model.Player
 import java.util.ArrayList
 
 interface PlayersInterface {
@@ -20,7 +21,9 @@ interface PlayersInterface {
     }
 
     interface PlayerModel {
-
+        fun getPlayers(): List<Player>
+        fun setPlayers(players: List<Player>)
+        fun addRandomPlayer()
     }
 
 }
