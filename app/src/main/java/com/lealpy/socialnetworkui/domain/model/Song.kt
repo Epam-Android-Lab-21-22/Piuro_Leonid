@@ -8,5 +8,5 @@ class Song (
     val year : String,
     val album : String,
     val genre : String,
-    val text : String,
+    val text : String
 )

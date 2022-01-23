@@ -11,4 +11,6 @@
     <color name="light_grey">#eaede8</color>
     <color name="splash_screen_background">#FFEAEA</color>
     <color name="play_button_background">#DC0F0F</color>
+    <color name="colorPrimary">#C60F0F</color>
+    <color name="colorPrimaryVariant">#670000</color>
 </resources>

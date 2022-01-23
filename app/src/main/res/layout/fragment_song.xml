@@ -30,14 +30,24 @@
         app:layout_constraintTop_toBottomOf="@id/title"
         tools:text="@string/item_song_singer_tools" />
 
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/dimen_10_dp"
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1_dp"
+        android:background="@color/grey"
+        android:layout_marginTop="@dimen/dimen_5_dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/singer"
+        app:layout_constraintTop_toBottomOf="@id/singer"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="@dimen/dimen_0_dp"
+        android:layout_height="@dimen/dimen_0_dp"
+        android:paddingTop="@dimen/dimen_5_dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
