@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/favoriteSongsFragment">
+
+    <fragment
+        android:id="@+id/favoriteSongsFragment"
+        android:name="com.lealpy.socialnetworkui.presentation.favorite_songs.FavoriteSongsFragment"
+        android:label="FavoriteSongsFragment"
+        tools:layout="@layout/fragment_favorite_songs">
+        <action
+            android:id="@+id/actionFavoriteSongsFragmentToSongFragment"
+            app:destination="@id/songFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/songFragment"
+        android:name="com.lealpy.socialnetworkui.presentation.song.SongFragment"
+        android:label="SongFragment"
+        tools:layout="@layout/fragment_song"/>
+
+</navigation>
