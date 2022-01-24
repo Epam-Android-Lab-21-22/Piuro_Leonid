@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">Social network ui</string>
+    <string name="app_name">Тексты песен</string>
+    <string name="loading">Загрузка</string>
+    <string name="song">Песня</string>
+    <string name="item_song_title_tools">Smells Like Teen Spirit</string>
+    <string name="item_song_singer_tools">Nirvana</string>
+    <string name="splash_screen_title">Тексты песен</string>
+    <string name="favorite_songs">Избранные песни</string>
+    <string name="favorite_songs_toast">Переход на url: %1$s</string>
+    <string name="favorite_songs_toolbar_title">Избранные композиции</string>
+    <string name="song_toolbar_info_title">Информация</string>
+    <string name="song_dialog_title">Название: %1$s</string>
+    <string name="song_dialog_singer">Исполнитель: %1$s</string>
+    <string name="song_dialog_album">Альбом: %1$s</string>
+    <string name="song_dialog_year">Год выпуска: %1$s</string>
+    <string name="song_dialog_genre">Жанр: %1$s</string>
 </resources>
