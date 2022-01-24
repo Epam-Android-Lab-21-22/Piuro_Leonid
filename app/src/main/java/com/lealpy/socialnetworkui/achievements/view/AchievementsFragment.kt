@@ -17,13 +17,9 @@ class AchievementsFragment :
 
     private lateinit var binding: FragmentAchievementsBinding
     private var presenter: AchievementsPresenter? = null
-    private val adapter = AchievementAdapter(
-        object: AchievementAdapter.OnCrossClickListener {
-            override fun onCrossClick(trophyItem: Achievement.TrophyItem) {
-                presenter?.onDeleteItemClicked(trophyItem)
-            }
-        }
-    )
+    private val adapter = AchievementAdapter { trophyItem ->
+        presenter?.onDeleteItemClicked(trophyItem)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

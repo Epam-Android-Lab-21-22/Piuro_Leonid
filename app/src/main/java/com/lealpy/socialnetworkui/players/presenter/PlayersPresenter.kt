@@ -21,7 +21,7 @@ class PlayersPresenter(
 
     override fun viewIsReady(savedState: Bundle?) {
         if(savedState == null) {
-            loadAchievements()
+            loadPlayers()
         } else {
             val players = savedState.getParcelableArrayList<Player>(PlayersFragment.PLAYERS_KEY)?.toList()
             if(players != null) {
@@ -29,7 +29,7 @@ class PlayersPresenter(
                 model.setPlayers(players)
                 view?.showPlayers(players)
             } else {
-                loadAchievements()
+                loadPlayers()
             }
         }
     }
@@ -40,14 +40,14 @@ class PlayersPresenter(
 
     override fun onAddButtonClicked() {
         model.addRandomPlayer()
-        loadAchievements()
+        loadPlayers()
     }
 
     override fun onViewAsksOutState(): ArrayList<out Parcelable>? {
         return players as? ArrayList<Parcelable>
     }
 
-    private fun loadAchievements() {
+    private fun loadPlayers() {
         view?.showProgress()
 
         Observable.create<List<Player>> { emitter ->

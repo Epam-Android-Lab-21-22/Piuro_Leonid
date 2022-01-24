@@ -11,7 +11,7 @@ import com.lealpy.socialnetworkui.databinding.ItemTeamBinding
 import com.lealpy.socialnetworkui.databinding.ItemTrophyBinding
 
 class AchievementAdapter (
-    private val onCrossClickListener: OnCrossClickListener,
+    private val onCrossClick : (trophyItem: Achievement.TrophyItem) -> Unit,
 ) : ListAdapter<Achievement, RecyclerView.ViewHolder>(DiffCallback()) {
 
     inner class SeasonItemHolder(
@@ -39,7 +39,7 @@ class AchievementAdapter (
             binding.trophyImage.setImageResource(trophyItem.image)
             binding.trophyDeleteButton.setOnClickListener {
                 val item = getItem(adapterPosition) as Achievement.TrophyItem
-                onCrossClickListener.onCrossClick(item)
+                onCrossClick(item)
             }
         }
     }
@@ -97,10 +97,6 @@ class AchievementAdapter (
             is TeamItemHolder -> holder.bind(item as Achievement.TeamItem)
             is TrophyItemHolder -> holder.bind(item as Achievement.TrophyItem)
         }
-    }
-
-    interface OnCrossClickListener {
-        fun onCrossClick(trophyItem: Achievement.TrophyItem)
     }
 
     class DiffCallback: DiffUtil.ItemCallback<Achievement>() {
