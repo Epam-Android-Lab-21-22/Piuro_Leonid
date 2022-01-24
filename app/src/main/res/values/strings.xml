@@ -9,7 +9,7 @@
     <string name="favorite_songs_toast">Переход на url: %1$s</string>
     <string name="favorite_songs_toolbar_title">Избранные композиции</string>
     <string name="song_toolbar_info_title">Информация</string>
-    <string name="song_dialog_title">Композиция: %1$s</string>
+    <string name="song_dialog_title">Название: %1$s</string>
     <string name="song_dialog_singer">Исполнитель: %1$s</string>
     <string name="song_dialog_album">Альбом: %1$s</string>
     <string name="song_dialog_year">Год выпуска: %1$s</string>

@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.lealpy.socialnetworkui.R
-import com.lealpy.socialnetworkui.domain.model.SongPreview
 import com.lealpy.socialnetworkui.databinding.FragmentFavoriteSongsBinding
 
 class FavoriteSongsFragment : Fragment(R.layout.fragment_favorite_songs) {
@@ -18,25 +17,22 @@ class FavoriteSongsFragment : Fragment(R.layout.fragment_favorite_songs) {
     private val viewModel : FavoriteSongsViewModel by activityViewModels()
 
     private val songAdapter = SongItemAdapter(
-        object : SongItemAdapter.OnItemClickListener {
-            override fun onItemClick(songItem: SongPreview) {
-                val args = Bundle()
-                args.putString(ARGS_KEY, songItem.id)
+        { songItem ->
+            val args = Bundle()
+            args.putString(ARGS_KEY, songItem.id)
 
-                findNavController().navigate(
-                    R.id.actionFavoriteSongsFragmentToSongFragment,
-                    args
-                )
-            }
+            findNavController().navigate(
+                R.id.actionFavoriteSongsFragmentToSongFragment,
+                args
+            )
+
         },
-        object : SongItemAdapter.OnPlayButtonClickListener {
-            override fun onplayButtonClick(url: String) {
-                Toast.makeText(
-                    requireContext(),
-                    String.format(getString(R.string.favorite_songs_toast), url),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+        { url ->
+            Toast.makeText(
+                requireContext(),
+                String.format(getString(R.string.favorite_songs_toast), url),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     )
 

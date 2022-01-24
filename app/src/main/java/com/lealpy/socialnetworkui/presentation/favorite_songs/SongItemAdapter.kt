@@ -9,8 +9,8 @@ import com.lealpy.socialnetworkui.domain.model.SongPreview
 import com.lealpy.socialnetworkui.databinding.ItemSongBinding
 
 class SongItemAdapter (
-    private val onItemClickListener: OnItemClickListener,
-    private val onPlayButtonClickListener: OnPlayButtonClickListener
+    private val onItemClick : (songPreview : SongPreview) -> Unit,
+    private val onPlayButtonClick : (url : String) -> Unit
 ): ListAdapter<SongPreview, SongItemAdapter.SongItemHolder>(DiffCallback()) {
 
     inner class SongItemHolder(
@@ -18,13 +18,11 @@ class SongItemAdapter (
     ): RecyclerView.ViewHolder(binding.root) {
 
         init {
-            binding.apply {
-                binding.root.setOnClickListener {
-                    val position = layoutPosition
-                    if (position != RecyclerView.NO_POSITION) {
-                        val songItem = getItem(position)
-                        onItemClickListener.onItemClick(songItem)
-                    }
+            binding.root.setOnClickListener {
+                val position = layoutPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val songItem = getItem(position)
+                    onItemClick(songItem)
                 }
             }
         }
@@ -35,7 +33,7 @@ class SongItemAdapter (
             if(songItem.url != null) {
                 binding.playButton.isEnabled = true
                 binding.playButton.setOnClickListener {
-                    onPlayButtonClickListener.onplayButtonClick(songItem.url)
+                    onPlayButtonClick(songItem.url)
                 }
             } else {
                 binding.playButton.isEnabled = false
@@ -55,14 +53,6 @@ class SongItemAdapter (
     override fun onBindViewHolder(holder: SongItemHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
-    }
-
-    interface OnItemClickListener {
-        fun onItemClick(songItem: SongPreview)
-    }
-
-    interface OnPlayButtonClickListener {
-        fun onplayButtonClick(url : String)
     }
 
     class DiffCallback: DiffUtil.ItemCallback<SongPreview>() {
