@@ -9,7 +9,7 @@ class GetMessageFromInternalStorageUseCase @Inject constructor(
 ) {
 
     fun execute() : Single<String> {
-        return repository.getMessageFromInternalStorage()
+        return repository.getMessageFromStorage()
     }
 
 }

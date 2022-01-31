@@ -14,6 +14,7 @@ import com.lealpy.socialnetworkui.presentation.message.MessageFragment.Companion
 import com.lealpy.socialnetworkui.presentation.message.MessageFragment.Companion.PREFS_POSITION
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
@@ -32,6 +33,13 @@ class MessageViewModel @Inject constructor(
 
     private val _message = MutableLiveData<String> ()
     val message : LiveData<String> = _message
+
+    private val disposable = CompositeDisposable()
+
+    override fun onCleared() {
+        disposable.dispose()
+        super.onCleared()
+    }
 
     fun onSaveClicked(selectedItemPosition: Int, message : String) {
         when(selectedItemPosition) {
@@ -52,127 +60,143 @@ class MessageViewModel @Inject constructor(
     }
 
     private fun insertMessageToDb(message : String) {
-        insertMessageToDbUseCase.execute(message)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                {
-                    showToast(getApplication<Application>().getString(R.string.saved_to_database_toast_text))
-                },
-                { error ->
-                    Log.e(LOG_TAG, error.message.toString())
-                    showToast(getApplication<Application>().getString(R.string.not_saved_to_database_toast_text))
-                }
-            )
+        disposable.add(
+            insertMessageToDbUseCase.execute(message)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    {
+                        showToast(getApplication<Application>().getString(R.string.saved_to_database_toast_text))
+                    },
+                    { error ->
+                        Log.e(LOG_TAG, error.message.toString())
+                        showToast(getApplication<Application>().getString(R.string.not_saved_to_database_toast_text))
+                    }
+                )
+        )
     }
 
     private fun getMessageFromDb() {
-        getMessageFromDbUseCase.execute()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { message ->
-                    _message.value = message
-                    showToast(getApplication<Application>().getString(R.string.loaded_from_database_toast_text))
-                },
-                { error ->
-                    Log.e(LOG_TAG, error.message.toString())
-                    showToast(getApplication<Application>().getString(R.string.not_loaded_from_database_toast_text))
-                }
-            )
+        disposable.add(
+            getMessageFromDbUseCase.execute()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { message ->
+                        _message.value = message
+                        showToast(getApplication<Application>().getString(R.string.loaded_from_database_toast_text))
+                    },
+                    { error ->
+                        Log.e(LOG_TAG, error.message.toString())
+                        showToast(getApplication<Application>().getString(R.string.not_loaded_from_database_toast_text))
+                    }
+                )
+        )
     }
 
     private fun insertMessageToPrefs(message: String) {
-        insertMessageToPrefsUseCase.execute(message)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                {
-                    showToast(getApplication<Application>().getString(R.string.saved_to_prefs_toast_text))
-                },
-                { error ->
-                    Log.e(LOG_TAG, error.message.toString())
-                    showToast(getApplication<Application>().getString(R.string.not_saved_to_prefs_toast_text))
-                }
-            )
+        disposable.add(
+            insertMessageToPrefsUseCase.execute(message)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    {
+                        showToast(getApplication<Application>().getString(R.string.saved_to_prefs_toast_text))
+                    },
+                    { error ->
+                        Log.e(LOG_TAG, error.message.toString())
+                        showToast(getApplication<Application>().getString(R.string.not_saved_to_prefs_toast_text))
+                    }
+                )
+        )
     }
 
     private fun getMessageFromPrefs() {
-        getMessageFromPrefsUseCase.execute()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { message ->
-                    _message.value = message
-                    showToast(getApplication<Application>().getString(R.string.loaded_from_prefs_toast_text))
-                },
-                { error ->
-                    Log.e(LOG_TAG, error.message.toString())
-                    showToast(getApplication<Application>().getString(R.string.not_loaded_from_prefs_toast_text))
-                }
-            )
+        disposable.add(
+            getMessageFromPrefsUseCase.execute()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { message ->
+                        _message.value = message
+                        showToast(getApplication<Application>().getString(R.string.loaded_from_prefs_toast_text))
+                    },
+                    { error ->
+                        Log.e(LOG_TAG, error.message.toString())
+                        showToast(getApplication<Application>().getString(R.string.not_loaded_from_prefs_toast_text))
+                    }
+                )
+        )
     }
 
     private fun insertMessageToInternalStorage(message: String) {
-        insertMessageToInternalStorageUseCase.execute(message)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                {
-                    showToast(getApplication<Application>().getString(R.string.saved_to_internal_storage_toast_text))
-                },
-                { error ->
-                    Log.e(LOG_TAG, error.message.toString())
-                    showToast(getApplication<Application>().getString(R.string.not_saved_to_internal_storage_toast_text))
-                }
-            )
+        disposable.add(
+            insertMessageToInternalStorageUseCase.execute(message)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    {
+                        showToast(getApplication<Application>().getString(R.string.saved_to_internal_storage_toast_text))
+                    },
+                    { error ->
+                        Log.e(LOG_TAG, error.message.toString())
+                        showToast(getApplication<Application>().getString(R.string.not_saved_to_internal_storage_toast_text))
+                    }
+                )
+        )
     }
 
     private fun getMessageFromInternalStorage() {
-        getMessageFromInternalStorageUseCase.execute()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe (
-                { message ->
-                    _message.value = message
-                    showToast(getApplication<Application>().getString(R.string.loaded_from_internal_storage_toast_text))
-                },
-                { error ->
-                    Log.e(LOG_TAG, error.message.toString())
-                    showToast(getApplication<Application>().getString(R.string.not_loaded_from_internal_storage_toast_text))
-                }
-            )
+        disposable.add(
+            getMessageFromInternalStorageUseCase.execute()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe (
+                    { message ->
+                        _message.value = message
+                        showToast(getApplication<Application>().getString(R.string.loaded_from_internal_storage_toast_text))
+                    },
+                    { error ->
+                        Log.e(LOG_TAG, error.message.toString())
+                        showToast(getApplication<Application>().getString(R.string.not_loaded_from_internal_storage_toast_text))
+                    }
+                )
+        )
     }
 
     private fun insertMessageToExternalStorage(message: String) {
-        insertMessageToExternalStorageUseCase.execute(message)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                {
-                    showToast(getApplication<Application>().getString(R.string.saved_to_external_storage_toast_text))
-                },
-                { error ->
-                    Log.e(LOG_TAG, error.message.toString())
-                    showToast(getApplication<Application>().getString(R.string.not_saved_to_external_storage_toast_text))
-                }
-            )
+        disposable.add(
+            insertMessageToExternalStorageUseCase.execute(message)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    {
+                        showToast(getApplication<Application>().getString(R.string.saved_to_external_storage_toast_text))
+                    },
+                    { error ->
+                        Log.e(LOG_TAG, error.message.toString())
+                        showToast(getApplication<Application>().getString(R.string.not_saved_to_external_storage_toast_text))
+                    }
+                )
+        )
     }
 
     private fun getMessageFromExternalStorage() {
-        getMessageFromExternalStorageUseCase.execute()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { message ->
-                    _message.value = message
-                    showToast(getApplication<Application>().getString(R.string.loaded_from_external_storage_toast_text))
-                },
-                { error ->
-                    Log.e(LOG_TAG, error.message.toString())
-                    showToast(getApplication<Application>().getString(R.string.not_loaded_from_external_storage_toast_text))
-                }
-            )
+        disposable.add(
+            getMessageFromExternalStorageUseCase.execute()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { message ->
+                        _message.value = message
+                        showToast(getApplication<Application>().getString(R.string.loaded_from_external_storage_toast_text))
+                    },
+                    { error ->
+                        Log.e(LOG_TAG, error.message.toString())
+                        showToast(getApplication<Application>().getString(R.string.not_loaded_from_external_storage_toast_text))
+                    }
+                )
+        )
     }
 
     private fun showToast(text : String) {

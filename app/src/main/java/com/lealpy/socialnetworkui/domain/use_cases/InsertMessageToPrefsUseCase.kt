@@ -9,7 +9,7 @@ class InsertMessageToPrefsUseCase @Inject constructor(
 ) {
 
     fun execute(message : String) : Completable {
-        return repository.insertMessageToPrefs(message)
+        return repository.insertMessageToStorage(message)
     }
 
 }

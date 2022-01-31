@@ -9,7 +9,7 @@ class GetMessageFromDbUseCase @Inject constructor(
 ) {
 
     fun execute() : Single<String> {
-        return repository.getMessageFromDb()
+        return repository.getMessageFromStorage()
     }
 
 }

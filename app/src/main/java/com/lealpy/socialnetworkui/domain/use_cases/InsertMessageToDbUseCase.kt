@@ -9,7 +9,7 @@ class InsertMessageToDbUseCase @Inject constructor(
 ) {
 
     fun execute(message : String) : Completable {
-        return repository.insertMessageToDb(message)
+        return repository.insertMessageToStorage(message)
     }
 
 }

@@ -6,7 +6,7 @@ import android.os.Environment
 import androidx.room.Room
 import com.lealpy.socialnetworkui.data.database.AppDatabase
 import com.lealpy.socialnetworkui.data.database.MessageDao
-import com.lealpy.socialnetworkui.data.repository.MessageRepositoryImpl
+import com.lealpy.socialnetworkui.data.repository.*
 import com.lealpy.socialnetworkui.domain.use_cases.*
 import dagger.Module
 import dagger.Provides
@@ -20,24 +20,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class AppModule {
-
-    /** Repository */
-
-    @Provides
-    @Singleton
-    fun provideMessageRepository(
-        messageDao : MessageDao,
-        prefs : SharedPreferences,
-        @Named("internalFile") internalFile : File,
-        @Named("externalFile") externalFile : File?
-    ) : MessageRepositoryImpl {
-        return MessageRepositoryImpl(
-            messageDao = messageDao,
-            prefs = prefs,
-            internalFile = internalFile,
-            externalFile = externalFile
-        )
-    }
 
     /** Room */
 
@@ -91,7 +73,7 @@ class AppModule {
     @Provides
     @Singleton
     fun provideGetMessageFromDbUseCase(
-        messageRepository: MessageRepositoryImpl
+        messageRepository: MessageRepositoryDatabase
     ) : GetMessageFromDbUseCase {
         return GetMessageFromDbUseCase(messageRepository)
     }
@@ -99,7 +81,7 @@ class AppModule {
     @Provides
     @Singleton
     fun provideInsertMessageToDbUseCase(
-        messageRepository: MessageRepositoryImpl
+        messageRepository: MessageRepositoryDatabase
     ) : InsertMessageToDbUseCase {
         return InsertMessageToDbUseCase(messageRepository)
     }
@@ -107,7 +89,7 @@ class AppModule {
     @Provides
     @Singleton
     fun provideGetMessageFromPrefsUseCase(
-        messageRepository: MessageRepositoryImpl
+        messageRepository: MessageRepositorySharedPreferences
     ) : GetMessageFromPrefsUseCase {
         return GetMessageFromPrefsUseCase(messageRepository)
     }
@@ -115,7 +97,7 @@ class AppModule {
     @Provides
     @Singleton
     fun provideInsertMessageToPrefsUseCase(
-        messageRepository: MessageRepositoryImpl
+        messageRepository: MessageRepositorySharedPreferences
     ) : InsertMessageToPrefsUseCase {
         return InsertMessageToPrefsUseCase(messageRepository)
     }
@@ -123,7 +105,7 @@ class AppModule {
     @Provides
     @Singleton
     fun provideGetMessageFromInternalStorageUseCase(
-        messageRepository: MessageRepositoryImpl
+        messageRepository: MessageRepositoryInternalStorage
     ) : GetMessageFromInternalStorageUseCase {
         return GetMessageFromInternalStorageUseCase(messageRepository)
     }
@@ -131,7 +113,7 @@ class AppModule {
     @Provides
     @Singleton
     fun provideInsertMessageToInternalStorageUseCase(
-        messageRepository: MessageRepositoryImpl
+        messageRepository: MessageRepositoryInternalStorage
     ) : InsertMessageToInternalStorageUseCase {
         return InsertMessageToInternalStorageUseCase(messageRepository)
     }
@@ -139,7 +121,7 @@ class AppModule {
     @Provides
     @Singleton
     fun provideGetMessageFromExternalStorageUseCase(
-        messageRepository: MessageRepositoryImpl
+        messageRepository: MessageRepositoryExternalStorage
     ) : GetMessageFromExternalStorageUseCase {
         return GetMessageFromExternalStorageUseCase(messageRepository)
     }
@@ -147,7 +129,7 @@ class AppModule {
     @Provides
     @Singleton
     fun provideInsertMessageToExternalStorageUseCase(
-        messageRepository: MessageRepositoryImpl
+        messageRepository: MessageRepositoryExternalStorage
     ) : InsertMessageToExternalStorageUseCase {
         return InsertMessageToExternalStorageUseCase(messageRepository)
     }
@@ -157,7 +139,6 @@ class AppModule {
         private const val SHARED_PREFERENCES_FILE_NAME = "prefs"
         private const val INTERNAL_STORAGE_FILE_NAME = "message.txt"
         private const val EXTERNAL_STORAGE_FILE_NAME = "message.txt"
-
     }
 
 }

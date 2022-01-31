@@ -9,7 +9,7 @@ class GetMessageFromPrefsUseCase @Inject constructor(
 ) {
 
     fun execute() : Single<String> {
-        return repository.getMessageFromPrefs()
+        return repository.getMessageFromStorage()
     }
 
 }

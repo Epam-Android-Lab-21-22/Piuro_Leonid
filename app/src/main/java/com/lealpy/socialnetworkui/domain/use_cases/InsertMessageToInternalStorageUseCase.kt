@@ -9,7 +9,7 @@ class InsertMessageToInternalStorageUseCase @Inject constructor(
 ) {
 
     fun execute(message : String) : Completable {
-        return repository.insertMessageToInternalStorage(message)
+        return repository.insertMessageToStorage(message)
     }
 
 }
