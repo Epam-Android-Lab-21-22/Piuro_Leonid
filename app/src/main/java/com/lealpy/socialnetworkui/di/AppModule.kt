@@ -81,7 +81,7 @@ class AppModule {
     @Named("externalFile")
     fun provideExternalFile(@ApplicationContext appContext: Context): File? {
         return if(Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
-            File(appContext.getExternalFilesDir(null), INTERNAL_STORAGE_FILE_NAME)
+            File(appContext.getExternalFilesDir(null), EXTERNAL_STORAGE_FILE_NAME)
         }
         else null
     }

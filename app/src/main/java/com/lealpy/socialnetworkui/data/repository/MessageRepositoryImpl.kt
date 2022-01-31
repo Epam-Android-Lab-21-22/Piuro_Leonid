@@ -22,8 +22,10 @@ class MessageRepositoryImpl @Inject constructor(
     @Named("externalFile") private val externalFile : File?
 ) : MessageRepository {
 
+    /** Database */
+
     override fun insertMessageToDb(message : String) : Completable {
-        val messageEntity = MessageEntity(id = MESSAGE_ENTITY_ID, message = message)
+        val messageEntity = MessageEntity(MESSAGE_ENTITY_ID, message)
         return messageDao.insertMessage(messageEntity)
     }
 
@@ -32,6 +34,8 @@ class MessageRepositoryImpl @Inject constructor(
             messageEntity.message
         }
     }
+
+    /** Shared preferences */
 
     override fun insertMessageToPrefs(message : String) : Completable {
         return Completable.create{ emitter ->
@@ -48,6 +52,8 @@ class MessageRepositoryImpl @Inject constructor(
             emitter.onSuccess(message)
         }
     }
+
+    /** Internal storage */
 
     override fun insertMessageToInternalStorage(message : String) : Completable {
         return Completable.create{ emitter ->
@@ -70,6 +76,8 @@ class MessageRepositoryImpl @Inject constructor(
             }
         }
     }
+
+    /** External storage */
 
     override fun insertMessageToExternalStorage(message : String) : Completable {
         return Completable.create{ emitter ->
