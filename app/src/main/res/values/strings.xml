@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Social network ui</string>
+    <string name="app_name">Storage</string>
     <string name="edittext_hint">Enter message</string>
     <string name="spinner_hint">Choose storage</string>
     <string name="save_btn_text">Save</string>

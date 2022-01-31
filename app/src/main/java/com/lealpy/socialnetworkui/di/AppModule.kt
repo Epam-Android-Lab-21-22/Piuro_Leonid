@@ -2,10 +2,11 @@ package com.lealpy.socialnetworkui.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.os.Environment
 import androidx.room.Room
 import com.lealpy.socialnetworkui.data.database.AppDatabase
 import com.lealpy.socialnetworkui.data.database.MessageDao
+import com.lealpy.socialnetworkui.data.file_providers.ExternalStorageFileProvider
+import com.lealpy.socialnetworkui.data.file_providers.InternalStorageFileProvider
 import com.lealpy.socialnetworkui.data.repository.*
 import com.lealpy.socialnetworkui.domain.use_cases.*
 import dagger.Module
@@ -13,8 +14,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import java.io.File
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -47,25 +46,20 @@ class AppModule {
         return appContext.getSharedPreferences(SHARED_PREFERENCES_FILE_NAME, Context.MODE_PRIVATE)
     }
 
-    /** Internal storage */
+    /** Internal storage file provider */
 
     @Provides
     @Singleton
-    @Named("internalFile")
-    fun provideInternalFile(@ApplicationContext appContext: Context): File {
-        return File(appContext.filesDir, INTERNAL_STORAGE_FILE_NAME)
+    fun provideInternalStorageFileProvider(@ApplicationContext appContext: Context): InternalStorageFileProvider {
+        return InternalStorageFileProvider(appContext)
     }
 
-    /** External storage */
+    /** External storage file provider */
 
     @Provides
     @Singleton
-    @Named("externalFile")
-    fun provideExternalFile(@ApplicationContext appContext: Context): File? {
-        return if(Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
-            File(appContext.getExternalFilesDir(null), EXTERNAL_STORAGE_FILE_NAME)
-        }
-        else null
+    fun provideExternalStorageFileProvider(@ApplicationContext appContext: Context): ExternalStorageFileProvider {
+        return ExternalStorageFileProvider(appContext)
     }
 
     /** Use cases */
@@ -137,8 +131,6 @@ class AppModule {
     companion object {
         private const val ROOM_DATABASE_FILE_NAME = "database.db"
         private const val SHARED_PREFERENCES_FILE_NAME = "prefs"
-        private const val INTERNAL_STORAGE_FILE_NAME = "message.txt"
-        private const val EXTERNAL_STORAGE_FILE_NAME = "message.txt"
     }
 
 }

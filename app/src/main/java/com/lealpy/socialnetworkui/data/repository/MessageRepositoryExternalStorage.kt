@@ -1,19 +1,20 @@
 package com.lealpy.socialnetworkui.data.repository
 
+import com.lealpy.socialnetworkui.data.file_providers.ExternalStorageFileProvider
 import com.lealpy.socialnetworkui.domain.repository.MessageRepository
 import io.reactivex.Completable
 import io.reactivex.Single
-import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.lang.Exception
 import java.lang.IllegalArgumentException
 import javax.inject.Inject
-import javax.inject.Named
 
 class MessageRepositoryExternalStorage @Inject constructor(
-    @Named("externalFile") private val externalFile : File?
+    fileProvider : ExternalStorageFileProvider
 ) : MessageRepository {
+
+    private val externalFile = fileProvider.getFile()
 
     override fun insertMessageToStorage(message : String) : Completable {
         return Completable.create{ emitter ->
