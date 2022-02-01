@@ -1,3 +1,39 @@
 <resources>
-    <string name="app_name">Social network ui</string>
+    <string name="app_name">Storage</string>
+    <string name="edittext_hint">Enter message</string>
+    <string name="spinner_hint">Choose storage</string>
+    <string name="save_btn_text">Save</string>
+    <string name="load_btn_text">Load</string>
+
+    <string name="saved_to_database_toast_text">Message saved to the database</string>
+    <string name="not_saved_to_database_toast_text">Error saving message to the database</string>
+
+    <string name="loaded_from_database_toast_text">Message loaded from the database</string>
+    <string name="not_loaded_from_database_toast_text">Error loading message from the database</string>
+
+    <string name="saved_to_prefs_toast_text">Message saved to the Preferences</string>
+    <string name="not_saved_to_prefs_toast_text">Error saving message to the Preferences</string>
+
+    <string name="loaded_from_prefs_toast_text">Message loaded from the Preferences</string>
+    <string name="not_loaded_from_prefs_toast_text">Error loading message from the Preferences</string>
+
+    <string name="saved_to_internal_storage_toast_text">Message saved to the Internal Storage</string>
+    <string name="not_saved_to_internal_storage_toast_text">Error saving message to the Internal Storage</string>
+
+    <string name="loaded_from_internal_storage_toast_text">Message loaded from the Internal Storage</string>
+    <string name="not_loaded_from_internal_storage_toast_text">Error loading message from the Internal Storage</string>
+
+    <string name="saved_to_external_storage_toast_text">Message saved to the External Storage</string>
+    <string name="not_saved_to_external_storage_toast_text">Error saving message to the External Storage</string>
+
+    <string name="loaded_from_external_storage_toast_text">Message loaded from the External Storage</string>
+    <string name="not_loaded_from_external_storage_toast_text">Error loading message from the External Storage</string>
+
+    <string-array
+        name="spinner_list">
+        <item>Database</item>
+        <item>Shared preferences</item>
+        <item>Internal storage</item>
+        <item>External storage</item>
+    </string-array>
 </resources>
